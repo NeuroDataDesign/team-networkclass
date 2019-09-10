@@ -47,7 +47,7 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 #### 2.1.2 - Mathematial notation
 
-- features are selected from a subset of features of interest with function ![ie1]
+- features are selected from a subset of features of interest with function <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\phi(\mathbf{v})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\phi(\mathbf{v})" title="\phi(\mathbf{v})" /></a>
 
 #### 2.1.3 - Training and teting decision trees
 
@@ -79,7 +79,6 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 ### 3.6 - Human body tracking in Microsoft Kinect for XBox 360
 
 <!-- Equations -->
-[ie1]: https://chart.apis.google.com/chart?cht=tx&chl=\phi(\mathbf{v})
 [ie2]: https://chart.apis.google.com/chart?cht=tx&chl=S_1
 [ie3]: https://chart.apis.google.com/chart?cht=tx&chl=S_1^L
 [ie4]: https://chart.apis.google.com/chart?cht=tx&chl=S_1^R
