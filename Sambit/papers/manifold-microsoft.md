@@ -47,7 +47,7 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 #### 2.1.2 - Mathematial notation
 
-- features are selected from a subset of features of interest with function <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\phi(\mathbf{v})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\phi(\mathbf{v})" title="\phi(\mathbf{v})" /></a>
+- features are selected from a subset of features of interest with function $latex <img src="https://latex.codecogs.com/gif.latex?\inline&space;\phi(v)" title="\phi(v)" />
 
 #### 2.1.3 - Training and teting decision trees
 
