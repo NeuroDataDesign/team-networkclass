@@ -67,12 +67,14 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 - the Shannon entropy is defined as
 
 <p align="center">
-<<img src="https://latex.codecogs.com/svg.latex?H(S)&space;=&space;-\sum_{c&space;\in&space;\mathcal{C}}&space;p(c)&space;\log(p(c))" title="H(S) = -\sum_{c \in \mathcal{C}} p(c) \log(p(c))" />
+<img src="https://latex.codecogs.com/svg.latex?H(S)&space;=&space;-\sum_{c&space;\in&space;\mathcal{C}}&space;p(c)&space;\log(p(c))" title="H(S) = -\sum_{c \in \mathcal{C}} p(c) \log(p(c))" />
 </p>
 
 - for continuous distributions, the differential entropy of a <img src="https://latex.codecogs.com/svg.latex?\inline&space;d" title="d" />-variate Gaussian is
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?H(S)&space;=&space;\frac{1}{2}&space;\log&space;\left((2&space;\pi&space;e)^d&space;|\Lambda&space;(S)&space;|&space;\right&space;)" title="H(S) = \frac{1}{2} \log \left((2 \pi e)^d |\Lambda (S) | \right )" />
+</p>
 
 - fitting Gaussian to the data, large overlap is associated with low info gain and peakier Gaussians corresponds to high information gain.
 - __summary: Cateogrical data - Split, calculate discreate probabilities, calculate information gain; Continuous data - Split, fit gaussian, calculate probabilities, calculate information gain__
@@ -83,7 +85,9 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 - each split node <img src="https://latex.codecogs.com/svg.latex?j" title="j" /> is associated with a binary split function
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?h(\mathbf{v},&space;\mathbf{\theta}_j)&space;\in&space;\{&space;0,&space;1&space;\}" title="h(\mathbf{v}, \mathbf{\theta}_j) \in \{ 0, 1 \}" />
+</p>
 
 - the model parameters for are <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{\theta}&space;=&space;(\mathbf{\phi},&space;\mathbf{\psi},&space;\mathbf{\tau})" title="\mathbf{\theta} = (\mathbf{\phi}, \mathbf{\psi}, \mathbf{\tau})" />
   - <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{\psi}" title="\mathbf{\psi}" /> actually splits the data
@@ -92,13 +96,17 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 - Linear weak learner
   - given that <img src="https://latex.codecogs.com/svg.latex?[\cdot]" title="[\cdot]" /> is the indicator function, this model is
 
+  <p align="center">
   <img src="https://latex.codecogs.com/svg.latex?h(\mathbf{v},&space;\mathbf{\theta}_j)&space;=&space;[\tau_1&space;>&space;\mathbf{\phi}(\mathbf{v})&space;\cdot&space;\mathbf{\psi}&space;>&space;\tau_2]" title="h(\mathbf{v}, \mathbf{\theta}_j) = [\tau_1 > \mathbf{\phi}(\mathbf{v}) \cdot \mathbf{\psi} > \tau_2]" />
+  </p>
 
   - Stumps: Axis-aligned weak learners
 - Nonlinear weak learner
   - Given that <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{\psi}&space;\in&space;\mathbb{R}^{3&space;\times&space;3}" title="\mathbf{\psi} \in \mathbb{R}^{3 \times 3}" /> is a matrix representing the conic section, the conic section is
 
+  <p align="center">
   <img src="https://latex.codecogs.com/svg.latex?h(\mathbf{v},&space;\mathbf{\theta}_j)&space;=&space;\left[&space;\tau_1&space;>&space;\mathbf{\phi}^\top(\mathbf{v})\,\mathbf{\psi}\,\mathbf{\phi}&space;(\mathbf{v})&space;>&space;\tau_2&space;\right]" title="h(\mathbf{v}, \mathbf{\theta}_j) = \left[ \tau_1 > \mathbf{\phi}^\top(\mathbf{v})\,\mathbf{\psi}\,\mathbf{\phi} (\mathbf{v}) > \tau_2 \right]" />
+  </p>
 
   - The number of degrees of freedom of the weak learner influences forest generalization properties
 
@@ -106,7 +114,9 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 - If the information gain at the <img src="https://latex.codecogs.com/svg.latex?j^\mathrm{th}" title="j^\mathrm{th}" /> split node is <img src="https://latex.codecogs.com/svg.latex?\inline&space;I_j&space;=&space;I(S_j,&space;S_j^L,&space;S_j^R,&space;\mathbf{\theta}_j)" title="I_j = I(S_j, S_j^L, S_j^R, \mathbf{\theta}_j)" />, then the information gain objective function is maximized to compute the optimal spit. That is,
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?\mathbf{\theta}_j^*&space;=&space;\arg&space;\max_{\mathbf{\theta}_j}&space;I_j" title="\mathbf{\theta}_j^* = \arg \max_{\mathbf{\theta}_j} I_j" />
+</p>
 
 #### 2.2.3 - The randomness model
 
@@ -115,7 +125,9 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
   - randomized node optimization
 - if <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathcal{T}" title="\mathcal{T}" /> is the set of all possible <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{\theta}" title="\mathbf{\theta}" /> when training the <img src="https://latex.codecogs.com/svg.latex?j^\mathrm{th}" title="j^\mathrm{th}" /> split node. Each split is optimized via
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?\mathbf{\theta}_j^*&space;=&space;\arg&space;\max_{\mathbf{\theta}_j&space;\in&space;\mathcal{T}_j}&space;I_j" title="\mathbf{\theta}_j^* = \arg \max_{\mathbf{\theta}_j \in \mathcal{T}_j} I_j" />
+</p>
 
 - so, <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho" title="\rho" /> is introduced where <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho&space;=&space;|\mathcal{T}_j|" title="\rho = |\mathcal{T}_j|" />. Here, <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho&space;=&space;|\mathcal{T}|" title="\rho = |\mathcal{T}|" /> indicates that all the trees are identical and <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho&space;=&space;1" title="\rho = 1" /> means there is no randomness in the system.
 
@@ -128,11 +140,15 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 - tree testing is done in parallel
 - in classification, forest prediction is a simple averaging operation:
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?p(c|\mathbf{v})&space;=&space;\frac{1}{T}&space;\sum_{t=1}^T&space;p_t(c|\mathbf{v})" title="p(c|\mathbf{v}) = \frac{1}{T} \sum_{t=1}^T p_t(c|\mathbf{v})" />
+</p>
 
 - or, given a partition function <img src="https://latex.codecogs.com/svg.latex?\inline&space;Z" title="Z" />, multiply tree outputs (even though trees are not statistically independent):
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?p(c|\mathbf{v})&space;=&space;\frac{1}{Z}&space;\prod_{t=1}^T&space;p_t(c|\mathbf{v})" title="p(c|\mathbf{v}) = \frac{1}{Z} \prod_{t=1}^T p_t(c|\mathbf{v})" />
+</p>
 
 - both averaging and taking the product are heavily influenced by most confident, most informative trees
 
@@ -198,11 +214,15 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 - formally, consider weak learners to be vertical lines only for a two class problem, _i.e._
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?\inline&space;h(\mathbf{v},&space;\mathbf{\theta}_j)&space;=&space;\left[&space;\phi(\mathbf{v})&space;>&space;\tau&space;\right&space;]&space;\quad&space;\mathrm{with}&space;\quad&space;\phi(\mathbf{v})&space;=&space;x_1" title="h(\mathbf{v}, \mathbf{\theta}_j) = \left[ \phi(\mathbf{v}) > \tau \right ] \quad \mathrm{with} \quad \phi(\mathbf{v}) = x_1" />
+</p>
 
 - the optimal separting line at position <img src="https://latex.codecogs.com/svg.latex?\inline&space;\tau^*" title="\tau^*" /> is
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.latex?\tau^*&space;=&space;\arg&space;\min_\tau&space;|p(c&space;=&space;c_1\,|\,x_1&space;=&space;\tau)&space;-&space;p(c&space;=&space;c_2\,|\,x_1&space;=&space;\tau)|" title="\tau^* = \arg \min_\tau |p(c = c_1\,|\,x_1 = \tau) - p(c = c_2\,|\,x_1 = \tau)|" />
+</p>
 
 ### 3.4 - Comparisons with alternative algorithms
 
