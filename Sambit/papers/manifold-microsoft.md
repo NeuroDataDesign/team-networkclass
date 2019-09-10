@@ -60,7 +60,7 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 - gain of information is computed using the following formula:
 
-<center><img src="https://latex.codecogs.com/svg.latex?I&space;=&space;H(S)&space;-&space;\sum_{i&space;\in&space;\{1,&space;2\}}&space;\frac{|S^j|}{|S|}&space;H(S^i)" title="I = H(S) - \sum_{i \in \{1, 2\}} \frac{|S^j|}{|S|} H(S^i)" /></center>
+<div style="text-align:center"><img src="https://latex.codecogs.com/svg.latex?I&space;=&space;H(S)&space;-&space;\sum_{i&space;\in&space;\{1,&space;2\}}&space;\frac{|S^j|}{|S|}&space;H(S^i)" title="I = H(S) - \sum_{i \in \{1, 2\}} \frac{|S^j|}{|S|} H(S^i)" /></div>
 
 - the Shannon entropy is defined as
 
@@ -176,27 +176,27 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 #### 3.3.3 - "Sloppy" labels and the effect of the tree depth
 
-- Tree depth increases overall prediction confidence
-- Large values of <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> tend to overfitting
-- Values of <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> is a function of the problem complexity
+- tree depth increases overall prediction confidence
+- large values of <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> tend to overfitting
+- values of <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> is a function of the problem complexity
 
 #### 3.3.4 - The effect of the weak learner
 
-- For a fixed weak learner, increasing <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> increases the confidence of the output
-- Axis alignned tests are efficient to compute so the choice of accuracy and efficency are a tradeoff
+- for a fixed weak learner, increasing <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> increases the confidence of the output
+- axis alignned tests are efficient to compute so the choice of accuracy and efficency are a tradeoff
 
 #### 3.3.5 - The effect of randomness
 
-- Larger randomness reduces blocky artifacts of axis-aligned weak learner but redduces overall confidence.
-- However, larger weak learners have a higher associated parameter space
+- larger randomness reduces blocky artifacts of axis-aligned weak learner but redduces overall confidence.
+- however, larger weak learners have a higher associated parameter space
 
 ### 3.4 - Maximum-margin properties
 
-- Formally, consider weak learners to be vertical lines only for a two class problem, _i.e._
+- formally, consider weak learners to be vertical lines only for a two class problem, _i.e._
 
 <center><img src="https://latex.codecogs.com/svg.latex?\inline&space;h(\mathbf{v},&space;\mathbf{\theta}_j)&space;=&space;\left[&space;\phi(\mathbf{v})&space;>&space;\tau&space;\right&space;]&space;\quad&space;\mathrm{with}&space;\quad&space;\phi(\mathbf{v})&space;=&space;x_1" title="h(\mathbf{v}, \mathbf{\theta}_j) = \left[ \phi(\mathbf{v}) > \tau \right ] \quad \mathrm{with} \quad \phi(\mathbf{v}) = x_1" /></center>
 
-- The optimal separting line at position <img src="https://latex.codecogs.com/svg.latex?\inline&space;\tau^*" title="\tau^*" /> is
+- the optimal separting line at position <img src="https://latex.codecogs.com/svg.latex?\inline&space;\tau^*" title="\tau^*" /> is
 
 <center><img src="https://latex.codecogs.com/svg.latex?\tau^*&space;=&space;\arg&space;\min_\tau&space;|p(c&space;=&space;c_1\,|\,x_1&space;=&space;\tau)&space;-&space;p(c&space;=&space;c_2\,|\,x_1&space;=&space;\tau)|" title="\tau^* = \arg \min_\tau |p(c = c_1\,|\,x_1 = \tau) - p(c = c_2\,|\,x_1 = \tau)|" /></center>
 
