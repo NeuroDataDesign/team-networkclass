@@ -25,4 +25,12 @@ Link: <https://arxiv.org/pdf/1701.08140.pdf>
   - reduce network to a global summary of measures like average degree, clustering coefficient, or average path length -> harm accuracy and don't identify local differences
   - classify large networks by treating edge weights as a "bag of features" -> Effectiveness depends on parcellation to define nodes, limited interatability based on edges
 - network structure incorporation is better at classification and interatibility
-- __GOAL OF PAPER:__ develop a high-dimensional network classifier that usese edge weights while respecting network structure
+- __GOAL OF PAPER: develop a high-dimensional network classifier that usese edge weights while respecting network structure__
+
+## 2 - A framework for node selsection in graph classification
+
+### 2.1 - A penalized graph classification approach
+
+- Goal: Predict class <img src="https://latex.codecogs.com/svg.latex?\inline&space;Y" title="Y" /> from graph adjacency matrix <img src="https://latex.codecogs.com/svg.latex?\inline&space;A" title="A" />
+- Can easily extend for multi-class
+- Standard - Construct linear classifier <img src="https://latex.codecogs.com/svg.latex?\inline&space;Y" title="Y" /> from linear combination of <img src="https://latex.codecogs.com/svg.latex?\inline&space;A" title="A" />
