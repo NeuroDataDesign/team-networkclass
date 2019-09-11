@@ -19,3 +19,15 @@ Connectivity is measured for every pair of nodes, forming an nxn adjacency matri
 their sizes make some approaches non-viable. As a result, one may approach analysis by first reducing
 the network to certain global features, but will ignore local differences as a result. 
 The other approach focuses on local features, but forgoes the analysis of global structure. 
+
+Section 2:
+Consider a graph with N nodes such that for adjacency matrix A∈Rnxn, Aij = Aji and Aii =0. Aim to classify
+the network in a binary manner. 
+
+2.1 
+For a penalized classification approach, create a linear combination <A,B> = Tr(BT A) where B is
+formed through an optimization problem with penalities to emphasize network structure. This problem is 
+solved with an argument B such that the sum of a logistic loss function and a penalty is minimized with 
+respect to B. 
+The sparsity penalty is formed to promote the minimal vertex cover problem for a group of selected
+edges. Other penalities are formed to enforce spatial properties. 
