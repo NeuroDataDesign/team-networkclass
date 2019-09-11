@@ -30,4 +30,4 @@ formed through an optimization problem with penalities to emphasize network stru
 solved with an argument B such that the sum of a logistic loss function and a penalty is minimized with 
 respect to B. 
 The sparsity penalty is formed to promote the minimal vertex cover problem for a group of selected
-edges. Other penalities are formed to enforce spatial properties. 
+edges. Other penalities can be formed to enforce spatial properties. 
