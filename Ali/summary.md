@@ -1,6 +1,6 @@
-#Summary
+# Summary
 
-##GraSPY Overview/Introduction Paper
+## GraSPY Overview/Introduction Paper
 
 Graphs provides a way to visualize and represent relationships between objects.
 GraSPy implements methods for statistical inference on graphs.
