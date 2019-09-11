@@ -5,7 +5,7 @@
 1. Network classification with applications to brain connectomics   <span style="color:yellow">#InProgress</span>
     - Arroyo-Relión et al. (2017)
     - [Link to the paper](https://arxiv.org/abs/1701.08140)
-    - [Summary]()
+    - [Summary](https://github.com/NeuroDataDesign/team-networkclass/blob/master/Jinhan/summary/AR%20et%20al.%202017.md)
 
 ## Connectomics
 

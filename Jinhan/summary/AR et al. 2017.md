@@ -3,7 +3,6 @@
 Author: Jesús D. Arroyo-Relión, Daniel Kessler, Elizaveta Levina, Stephan F. Taylor (2017)
 
 ## Abstract
-***
 **Goal**
     
 - Classify networks with labeled nodes
@@ -17,7 +16,6 @@ Author: Jesús D. Arroyo-Relión, Daniel Kessler, Elizaveta Levina, Stephan F. T
 2. Encode network structure by using penalties
 
 ## 1. Introduction
-***
 
 **Data:**
 - Resting-state fMRI data
@@ -37,19 +35,18 @@ Author: Jesús D. Arroyo-Relión, Daniel Kessler, Elizaveta Levina, Stephan F. T
 2. "Vectorizing the unique elements of the adjacency matrix" <span style="color:red">**(?)**</span>
 
 ## 2. The classifier and penalties
-***
 
 - Network = undirected graph = adjacency matrix
     
-    <img src="http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{N\times N}">
+    <img src="http://latex.codecogs.com/gif.latex?A\in\mathbb{R}^{N\times\/N}">
 
 - Binary classification in this paper
 
 - Linear classifier
 
-     <img src="http://latex.codecogs.com/gif.latex?\langle A,B\rangle">
+     <img src="http://latex.codecogs.com/gif.latex?\langle\/A,B\rangle">
 
-     where <img src="http://latex.codecogs.com/gif.latex?B\in\mathbb{R}^{N\times N}"> "emphasize the network nature of the predictors" <span style="color:red">**(?)**</span> as the result of training
+     where <img src="http://latex.codecogs.com/gif.latex?B\in\mathbb{R}^{N\times\/N}"> "emphasize the network nature of the predictors" <span style="color:red">**(?)**</span> as the result of training
 
 - Loss function: logistic loss function (need to review)
 
