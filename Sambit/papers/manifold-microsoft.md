@@ -229,3 +229,65 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 ### 3.5 - Comparisons with alternative algorithms
 
 ### 3.6 - Human body tracking in Microsoft Kinect for XBox 360
+
+## 4 - Regression forests
+
+### 4.1 - Nonlinear regression in the literature
+
+### 4.2 - Specializing the decision forest model for regression
+
+### 4.3 - Effect of model parameters
+
+### 4.4 - Comparison with alternative algorithms
+
+### 4.5 - Semantic parsing of 3D computed tomography scans
+
+## 5 - Density forests
+
+### 5.1 - Literature of density estimation
+
+### 5.2 - Specializing the forest model for density estimation
+
+### 5.3 - Effect of model parameters
+
+### 5.4 - Comparison with alternative algorithms
+
+### 5.5 - Sampling from the generative model
+
+### 5.6 - Dealing with non-function relations
+
+### 5.7 - Quantitative analysis
+
+## 6 - Manifold forests
+
+### 6.1 - Literature of manifold learning
+
+### 6.2 - Specializing the forest model for manifold learning
+
+#### 6.3 - Experiments and the effect of model parameters
+
+## 7 - Semi-supervised forests
+
+### 7.1 - Literature on semi-supervised learning
+
+### 7.2 - Specializing the forest model for manifold learning
+
+### 7.3 - Label propagation in transduction forest
+
+### 7.4 - Induction from transduction
+
+### 7.5 - Examples, comparisons, and effect of model parameters
+
+## 8 - Random ferns and other forest variants
+
+### 8.1 - Extremly randomized trees
+
+### 8.2 - Random ferns
+
+### 8.3 - Online forest training
+
+### 8.4 - Structured-output forests
+
+### 8.5 - Further forest variants
+
+## Conclusions
