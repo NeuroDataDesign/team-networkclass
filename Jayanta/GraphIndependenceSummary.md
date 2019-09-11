@@ -1,4 +1,4 @@
-# Graph Independence Test
+# Graph Independence Test ([link](https://arxiv.org/abs/1906.03661))
 ----
 * An algorithm to test dependence between two graphs has been introduced and is verified on the structural connectomes and chemical synapse connectome of C. elegans.
 
