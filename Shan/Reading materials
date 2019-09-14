@@ -1,0 +1,11 @@
+GraSPy: Graph Statistics in Python, Jaewon C., et al. https://arxiv.org/abs/1904.05329
+
+Discription: 
+A Python library to analysis and understand graphs.
+Advantages: 
+Its statistical modeling ability performs much better than other Python analysis packages， 
+especially on aspects of embed, mult embed, model fit and hyp.test.
+Working progress:
+Stimulation(single graph / multiple graph)-> Utlis -> choose models and then 
+embed -> cluster & inference -> plot 
+Or embed -> plot
