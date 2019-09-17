@@ -1,6 +1,8 @@
 Summary for NETWORK CLASSIFICATION WITH APPLICATIONS TO BRAIN CONNECTOMICS,
 Arroyo-Reli ´ on et al, 2019, arXiv
 
+Casey Weiner
+
 Page 1:
 
 Brain imaging data allows for distinguishing between the brains of patients with
