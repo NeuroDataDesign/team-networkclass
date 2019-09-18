@@ -29,9 +29,19 @@ Link: <https://arxiv.org/pdf/1701.08140.pdf>
 
 ## 2 - A framework for node selsection in graph classification
 
-### 2.1 - A penalized graph classification approach
-
 - Goal: Predict class <img src="https://latex.codecogs.com/svg.latex?\inline&space;Y" title="Y" /> from graph adjacency matrix <img src="https://latex.codecogs.com/svg.latex?\inline&space;A" title="A" />
 - Can easily extend for multi-class
 - Standard - Construct linear classifier <img src="https://latex.codecogs.com/svg.latex?\inline&space;Y" title="Y" /> from linear combination of <img src="https://latex.codecogs.com/svg.latex?\inline&space;A" title="A" />
-- If <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathcal{B}&space;=&space;\left\{&space;B&space;\in&space;\mathbb{R}^{N&space;\times&space;N}:&space;B&space;=&space;B^T,&space;\mathrm{diag}(B)&space;=&space;0&space;\right\}" title="\mathcal{B} = \left\{ B \in \mathbb{R}^{N \times N}: B = B^T, \mathrm{diag}(B) = 0 \right\}" />,
+- If <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathcal{B}&space;=&space;\left\{&space;B&space;\in&space;\mathbb{R}^{N&space;\times&space;N}:&space;B&space;=&space;B^T,&space;\mathrm{diag}(B)&space;=&space;0&space;\right\}" title="\mathcal{B} = \left\{ B \in \mathbb{R}^{N \times N}: B = B^T, \mathrm{diag}(B) = 0 \right\}" />, the loss function is
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?l(B)&space;=&space;\frac{1}{n}&space;\sum_{k=1}^n&space;\tilde{l}&space;(Y_k,&space;A^{(k)};&space;B)" title="l(B) = \frac{1}{n} \sum_{k=1}^n \tilde{l} (Y_k, A^{(k)}; B)" />
+</p>
+
+- the optimization algorithm can work with any convex and continuously differentialbe loss function
+- focus on convex formulations that allow for efficient computation and small nodes
+- group lasso is used to eliminate groups of variables, it is
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?\Omega_{\lambda,&space;\rho}&space;(B)&space;=&space;\lambda&space;\left(&space;\sum_{i=1}^N&space;||B_{(i)}&space;||_2&space;&plus;&space;\rho&space;||&space;B&space;||_1&space;\right&space;)" title="\Omega_{\lambda, \rho} (B) = \lambda \left( \sum_{i=1}^N ||B_{(i)} ||_2 + \rho || B ||_1 \right )" />
+</p>
