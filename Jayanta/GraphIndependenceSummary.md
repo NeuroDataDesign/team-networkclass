@@ -8,4 +8,4 @@
 
 * To avoid overfitting or underfitting and promote sparse solution l-2 and l-1 norm regularization is added
 * Proximal algorithm along with ADMM has been used to find the global solution
-* Separate ADMM was used to find the optimum bias b
+* Separate ADMM was used to find the optimum bias b 
