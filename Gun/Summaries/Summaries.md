@@ -21,10 +21,21 @@ https://arxiv.org/abs/1701.08140 arXiv, J.Arroyo et al.
 - Consider a graph with N nodes such that for adjacency matrix A∈R<sub>nxn</sub>, A<sub>ij</sub> = A<sub>ji</sub> and A<sub>ii</sub> =0. Aim to classify
 the network in a binary manner.
 
-2.1
-- For a penalized classification approach, create a linear combination <A,B> = Tr(B<sup>T</sup> A) where B is formed through an optimization problem with penalities to emphasize network structure. This problem is solved with an argument B such that the sum of a logistic loss function and a penalty is minimized with  respect to B.
-- The sparsity penalty is formed to promote the minimal vertex cover problem for a group of selected edges. Other penalities can be formed to enforce spatial properties.
+**2.1**
+- For a penalized classification approach, create a linear combination <A,B> = Tr(B<sup>T</sup> A) where B is found through an optimization problem with penalties to emphasize network structure. This problem is solved with an argument B such that the sum of a logistic loss function and a penalty is minimized with respect to B.
+- The goal is to predict the response Y from <A,B>.
+- The sparsity penalty is formed to promote the minimal vertex cover problem for a group of selected edges. Other penalties can be formed to enforce spatial properties.
 
+**2.2**
+- The group lasso approach is designed to minimize the number of nodes and edges through sparsity penalties
+- This penalty is defined as a multiple of the sum of the l2 norms for each of the rows or columns of B added to a multiple of the l1 norm of B. The l1 norm allows for selection of subsets of edges connected to active nodes.
+
+### Section 3:
+- Proximal algorithm is applied to the main problem, with ADMM solving for the proximal operator at each step.
+- ADMM breaks down convex optimization problems into smaller pieces that are easier to solve.
+
+### Section 4:
+- Actual math theory, come back later 
 
 ## Decision Forests for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning
 https://www.microsoft.com/en-us/research/publication/decision-forests-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/ Microsoft TR, A.Criminisi et al.
