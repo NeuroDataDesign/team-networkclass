@@ -35,9 +35,11 @@ the network in a binary manner.
 - ADMM breaks down convex optimization problems into smaller pieces that are easier to solve.
 
 ### Section 4:
-- Actual math theory, come back later 
+- Actual math theory, come back later
 
 ## Decision Forests for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning
 https://www.microsoft.com/en-us/research/publication/decision-forests-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/ Microsoft TR, A.Criminisi et al.
 
 ### Section 1:
+- Using ensemble methods gives better forests, hence random forests instead of trees
+- Decision trees are randomly trained. Bagging randomly samples labelled training data
