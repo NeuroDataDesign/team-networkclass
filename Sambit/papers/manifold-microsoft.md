@@ -40,24 +40,13 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 ### 2.1 - Background and notation
 
-#### 2.1.1 - Decision tree basics
-
 - tree is hierarchy of nodes and edges
 - decision tree makes decisions
-
-#### 2.1.2 - Mathematial notation
-
 - features are selected from a subset of features of interest with function <img src="https://latex.codecogs.com/svg.latex?\inline&space;\phi(\mathbf{v})" title="\phi(\mathbf{v})" />
-
-#### 2.1.3 - Training and teting decision trees
-
 - leaf nodes contain a predictor (classifier or regressor) which associates an output (class label) to the input <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{v}" title="\mathbf{v}" />
 - <img src="https://latex.codecogs.com/svg.latex?\inline&space;S_1" title="S_1" /> refers to training points reaching node 1, <img src="https://latex.codecogs.com/svg.latex?\inline&space;S_1^L" title="S_1^L" /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;S_1^R" title="S_1^R" /> are subsets left and right to children. In binary trees, <img src="https://latex.codecogs.com/svg.latex?\inline&space;S_j&space;=&space;S_j^L&space;\cup&space;S_j^R" title="S_j = S_j^L \cup S_j^R" />, <img src="https://latex.codecogs.com/svg.latex?\inline&space;S_j^L&space;\cap&space;S_j^R&space;=&space;\emptyset" title="S_j^L \cap S_j^R = \emptyset" />, <img src="https://latex.codecogs.com/svg.latex?\inline&space;S_j^L=&space;S_{2j&plus;1}" title="S_j^L= S_{2j+1}" />, and <img src="https://latex.codecogs.com/svg.latex?\inline&space;S_j^R=&space;S_{2j&plus;2}" title="S_j^R= S_{2j+2}" />
 - ground truth labels are chosen to minimize and energy function
 - randomness is injected during the training process, and deterministic once trees are fixed
-
-#### 2.1.4 - Entropy and information gain
-
 - gain of information is computed using the following formula:
 
 <p align="center">
@@ -80,8 +69,6 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 - __summary: Cateogrical data - Split, calculate discreate probabilities, calculate information gain; Continuous data - Split, fit gaussian, calculate probabilities, calculate information gain__
 
 ### 2.2 - The decision forest model
-
-#### 2.2.1 - The weak learner model
 
 - each split node <img src="https://latex.codecogs.com/svg.latex?j" title="j" /> is associated with a binary split function
 
@@ -109,16 +96,11 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
   </p>
 
   - The number of degrees of freedom of the weak learner influences forest generalization properties
-
-#### 2.2.2 - The training objective  function
-
 - If the information gain at the <img src="https://latex.codecogs.com/svg.latex?j^\mathrm{th}" title="j^\mathrm{th}" /> split node is <img src="https://latex.codecogs.com/svg.latex?\inline&space;I_j&space;=&space;I(S_j,&space;S_j^L,&space;S_j^R,&space;\mathbf{\theta}_j)" title="I_j = I(S_j, S_j^L, S_j^R, \mathbf{\theta}_j)" />, then the information gain objective function is maximized to compute the optimal spit. That is,
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?\mathbf{\theta}_j^*&space;=&space;\arg&space;\max_{\mathbf{\theta}_j}&space;I_j" title="\mathbf{\theta}_j^* = \arg \max_{\mathbf{\theta}_j} I_j" />
 </p>
-
-#### 2.2.3 - The randomness model
 
 - randomness is injected during the training phase via
   - bagging
@@ -130,13 +112,7 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 </p>
 
 - so, <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho" title="\rho" /> is introduced where <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho&space;=&space;|\mathcal{T}_j|" title="\rho = |\mathcal{T}_j|" />. Here, <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho&space;=&space;|\mathcal{T}|" title="\rho = |\mathcal{T}|" /> indicates that all the trees are identical and <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho&space;=&space;1" title="\rho = 1" /> means there is no randomness in the system.
-
-#### 2.2.4 - The leaf prediction model
-
 - the probabilitic leaf predictor model for the <img src="https://latex.codecogs.com/svg.latex?\inline&space;t^\mathrm{th}" title="t^\mathrm{th}" /> tree is <img src="https://latex.codecogs.com/svg.latex?\inline&space;p_t(c|\mathbf{v})" title="p_t(c|\mathbf{v})" />. In regression, the output is continuous and the leaf predictor model is a posterior of the desired continuous variable. In classification trees, it is a point estimate instead.
-
-#### 2.2.5 - The ensemble model
-
 - tree testing is done in parallel
 - in classification, forest prediction is a simple averaging operation:
 
@@ -151,9 +127,6 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 </p>
 
 - both averaging and taking the product are heavily influenced by most confident, most informative trees
-
-#### 2.2.6 - Stopping criteria
-
 - hard limit (depth of trees hyper-parameter)
 - minimum information gain
 - too few points in a class
@@ -185,28 +158,14 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 ### 3.3 - Effect of model parameters
 
-#### 3.3.1 - The effect of the forest size on generalization
-
 - suppose shallow trees (<img src="https://latex.codecogs.com/svg.latex?\inline&space;D=2" title="D=2" />)
 - increasing forest size from <img src="https://latex.codecogs.com/svg.latex?\inline&space;T=1" title="T=1" /> to <img src="https://latex.codecogs.com/svg.latex?\inline&space;T=200" title="T=200" /> produces smoother posteriors
-
-#### 3.3.2 - Multiple classes and training noises
-
 - decision trees are better than SVM or boosting because it can handle both binary and multi-class problems
-
-#### 3.3.3 - "Sloppy" labels and the effect of the tree depth
-
 - tree depth increases overall prediction confidence
 - large values of <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> tend to overfitting
 - values of <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> is a function of the problem complexity
-
-#### 3.3.4 - The effect of the weak learner
-
 - for a fixed weak learner, increasing <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> increases the confidence of the output
 - axis alignned tests are efficient to compute so the choice of accuracy and efficency are a tradeoff
-
-#### 3.3.5 - The effect of randomness
-
 - larger randomness reduces blocky artifacts of axis-aligned weak learner but redduces overall confidence.
 - however, larger weak learners have a higher associated parameter space
 
@@ -224,29 +183,118 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 <img src="https://latex.codecogs.com/svg.latex?\tau^*&space;=&space;\arg&space;\min_\tau&space;|p(c&space;=&space;c_1\,|\,x_1&space;=&space;\tau)&space;-&space;p(c&space;=&space;c_2\,|\,x_1&space;=&space;\tau)|" title="\tau^* = \arg \min_\tau |p(c = c_1\,|\,x_1 = \tau) - p(c = c_2\,|\,x_1 = \tau)|" />
 </p>
 
-### 3.4 - Comparisons with alternative algorithms
+- available test parameters are sampled uniformly, then forest posteriors behave linearly
+- if posteriors are are constant, then the optimal separation is in the middle of the gap (margin-maximization)
+- as <img src="https://latex.codecogs.com/svg.latex?\inline&space;T&space;\rightarrow&space;\infty" title="T \rightarrow \infty" />, the desired max-margin behavior is produced as in SVM
+- the combination is fully probabibilistic
+- more randomness is not guaranteed to split the data perfectly and leads to lower information gain
+- randomness parameter similar to the slack variable in SVM
+- little randomness similar to SVMs
+- using linear weak-learners produce globally nonlinear classification
+- the choice of weak learner affects the optimal hard separating surface
+- conic learners shape the uncertainty region in a curved fasion
+- in bagging, 50% of the training data is sampled with replacement
+- randomly set the parameter (RNO) and bagging together were used leading to smoother posteriors with optimal boundaries not maximum margin
+  - bagging improves training speed
+  - SNO is used because it uses all training data and allows to control maximum-margin by changing randomness parameter <img src="https://latex.codecogs.com/svg.latex?\inline&space;\rho" title="\rho" />
 
 ### 3.5 - Comparisons with alternative algorithms
 
+- against boosting
+  - forests vs. ModestBoost with shallow stumps, axis-aligned weak learners
+  - forests produced smooth, probabilistic output while boosting produces a hard output
+- against SVM
+  - all four class examples are nicely separable
+  - forests and SVM separate well, while forests provide uncertainty information
+  - SVM produces equal confidence per pixel
+
 ### 3.6 - Human body tracking in Microsoft Kinect for XBox 360
+
+- 31 different body part classes
+- pixel <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{p}&space;\in&space;\mathbb{R}^2" title="\mathbf{p} \in \mathbb{R}^2" /> with associated feature vector <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{v}(\mathbf{p})&space;\in&space;\mathbb{R}^d" title="\mathbf{v}(\mathbf{p}) \in \mathbb{R}^d" />
+- feature vector is collection of depth differences
+- use axis-aligned weak learner
 
 ## 4 - Regression forests
 
+- labels are continuous
+
 ### 4.1 - Nonlinear regression in the literature
+
+- least squares fits a linear regressor to minimize some error
+  - limitation is its linear
+  - also is sensitive input noise
+- RANSAC is a poopular technique to achieve regression via randomization (outputs are non probabilistic) -> regression forests are an extention of this
+- SVR is simple model
+- nonprobabilistic regression forests also exist
 
 ### 4.2 - Specializing the decision forest model for regression
 
+- learn a general mapping with previously unseen independent data with the correct continuous prediction
+- given a multivariate input <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{v}" title="\mathbf{v}" />, wish to associate multivariate label <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{y}&space;\in&space;\mathcal{Y}&space;\subset&space;\mathbb{R}^n" title="\mathbf{y} \in \mathcal{Y} \subset \mathbb{R}^n" /> -> estimate <img src="https://latex.codecogs.com/svg.latex?\inline&space;p(\mathbf{y}&space;|&space;\mathbf{v})" title="p(\mathbf{y} | \mathbf{v})" />
+- a polynomial model can be used the estimate the class posterior (pre-stored in classification) -> simple and captures many relationships
+- forest output is average of all tree outputs
+- forest training happens by optimiizing over a training set
+- main difference is the form of the objective function <img src="https://latex.codecogs.com/svg.latex?\inline&space;I_j" title="I_j" />
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?I_j&space;=&space;\sum_{\mathbf{v}&space;\in&space;S_j}&space;\log&space;(|\Lambda_\mathbf{y}&space;(\mathbf{v})|)&space;-&space;\sum_{i&space;\in&space;\{\mathrm{L},&space;\mathrm{R}\}}&space;\left(&space;\sum_{\mathbf{v}&space;\in&space;S^i_j}&space;\log&space;(|\Lambda_\mathbf{y}&space;(\mathbf{v})|)&space;\right&space;)" title="I_j = \sum_{\mathbf{v} \in S_j} \log (|\Lambda_\mathbf{y} (\mathbf{v})|) - \sum_{i \in \{\mathrm{L}, \mathrm{R}\}} \left( \sum_{\mathbf{v} \in S^i_j} \log (|\Lambda_\mathbf{y} (\mathbf{v})|) \right )" />
+</p>
+
+- the function inside the <img src="https://latex.codecogs.com/svg.latex?\inline&space;\log" title="\log" /> is the conditional covariance matrix from probabilistic linear fitting
+- the error or fit objective function is LS between single-variate output and mean output for all training points
+- split by binary weak learner (three types considered -> axis-aligned, oriented hyperplane, quadratic)
+
 ### 4.3 - Effect of model parameters
+
+- increasing forest size produces moother class posteriors and smoother mean curves
+- deeper trees may overfit the data
+- uncertainty increases away from training data
 
 ### 4.4 - Comparison with alternative algorithms
 
+- against Guassian processes
+  - behavior is similar
+  - shape of uncertainty determined by the prediction model
+  - GP leads to overconfident predictions on ambiguous (noisy) data
+
 ### 4.5 - Semantic parsing of 3D computed tomography scans
+
+- how to place a bounding box within the image
+- each voxel takes in image votes for where it thinks the organ should be (relative displacement vectors)
+- for a voxel, the feature vector is a collection of differences (density of tissue)
+- advantage of forests is interpretability, cluster of points represents pretty good confidence
+- regression forests used in localization for full body MRI images
 
 ## 5 - Density forests
 
+- find intrinisic nature and structure of unabled data
+- problem closely related to clustering
+
 ### 5.1 - Literature of density estimation
 
+- $k$-means in the standard, and GMMs are used to approximate complex distributions as a set of simple multivariate Gaussians
+- Parzen-Rosenblatt window estimates is kernel based, and $k$-nearest neighbor algorithm is related
+
 ### 5.2 - Specializing the forest model for density estimation
+
+- given a set of unlabeled observations we wish to estimate the probability density function from which such data has been generated
+- data point is represented as a multidimensional feature response vector
+- density forest is a generalization of GMM with multiple hard clustered data paritions and the forest posterior is a combination of tree posteriors (rather than linear combinations of Gaussians)
+- define unsupervised entryopy of <img src="https://latex.codecogs.com/svg.latex?\inline&space;d" title="d" />-variate Guassians iis find using
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?H(S)&space;=&space;\frac{1}{2}&space;\log&space;\left(&space;(2&space;\pi&space;e)^d&space;|\Lambda&space;(S)|&space;\right&space;)" title="H(S) = \frac{1}{2} \log \left( (2 \pi e)^d |\Lambda (S)| \right )" />
+</p>
+
+- if the cardinality of determinant of the matrix is denoted by <img src="https://latex.codecogs.com/svg.latex?\inline&space;|\cdot|" title="|\cdot|" />, the information gain reduces to
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?I_j&space;=&space;\log&space;(|\Lambda&space;(S_j)|)&space;-&space;\sum_{i&space;\in&space;\{&space;\mathrm{L},&space;\mathrm{R}\}}&space;\frac{|S^i_j|}{S_j}&space;\log&space;(|\Lambda&space;(S^i_j)|)" title="I_j = \log (|\Lambda (S_j)|) - \sum_{i \in \{ \mathrm{L}, \mathrm{R}\}} \frac{|S^i_j|}{S_j} \log (|\Lambda (S^i_j)|)" />
+</p>
+
+- the deteriminant of the covariance matrix is a function of the volume of the ellipsoid corresponding to the cluster
+- Guassians are used since they are simple and produce easier distributions to use
 
 ### 5.3 - Effect of model parameters
 
