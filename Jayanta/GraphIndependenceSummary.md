@@ -1,11 +1,11 @@
-# Graph Independence Test ([link](https://arxiv.org/abs/1906.03661))
+# Network Classification ([link](https://arxiv.org/abs/1701.08140))
 ----
-* An algorithm to test dependence between two graphs has been introduced and is verified on the structural connectomes and chemical synapse connectome of C. elegans.
+* This paper proposes a binary class graph classification approach
 
-* \rho - SBM model is used to measure the p-value
+* This method calculates the weighted sum of all the edges connected to a node 
 
-* The community assignment is done by doing GMM on the joint embedding of the two graphs' latent positions (similar to the cosie model from grspy)
+* The weights are calculated by minimising a logistic regression cost function that penalises high cost due to misclassification
 
-* Permutation of edges within a block is done to estimate the distribution of the test statistic, and thereby, give a p-value
-
-* correlation between two graphs is used as the test statistic, and can be measured either using induced metric from adjacency matrix or from Pearson correlation
+* To avoid overfitting or underfitting and promote sparse solution l-2 and l-1 norm regularization is added
+* Proximal algorithm along with ADMM has been used to find the global solution
+* Separate ADMM was used to find the optimum bias b
