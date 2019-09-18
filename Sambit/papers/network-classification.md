@@ -34,3 +34,4 @@ Link: <https://arxiv.org/pdf/1701.08140.pdf>
 - Goal: Predict class <img src="https://latex.codecogs.com/svg.latex?\inline&space;Y" title="Y" /> from graph adjacency matrix <img src="https://latex.codecogs.com/svg.latex?\inline&space;A" title="A" />
 - Can easily extend for multi-class
 - Standard - Construct linear classifier <img src="https://latex.codecogs.com/svg.latex?\inline&space;Y" title="Y" /> from linear combination of <img src="https://latex.codecogs.com/svg.latex?\inline&space;A" title="A" />
+- If <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathcal{B}&space;=&space;\left\{&space;B&space;\in&space;\mathbb{R}^{N&space;\times&space;N}:&space;B&space;=&space;B^T,&space;\mathrm{diag}(B)&space;=&space;0&space;\right\}" title="\mathcal{B} = \left\{ B \in \mathbb{R}^{N \times N}: B = B^T, \mathrm{diag}(B) = 0 \right\}" />,
