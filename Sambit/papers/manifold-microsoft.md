@@ -295,14 +295,66 @@ Link: <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/decis
 
 - the deteriminant of the covariance matrix is a function of the volume of the ellipsoid corresponding to the cluster
 - Guassians are used since they are simple and produce easier distributions to use
+- the output of the training points at the leaf node is a multivariate Guassian distribution:
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?p_t&space;(\mathbf{v})&space;=&space;\frac{\pi_{l&space;(\mathbf{v})}}{Z_t}&space;\mathcal{N}&space;(\mathbf{v};&space;\mathbf{\mu}_{l&space;(\mathbf{v})};&space;\mathbf{\Lambda}_{l&space;(\mathbf{v})})" title="p_t (\mathbf{v}) = \frac{\pi_{l (\mathbf{v})}}{Z_t} \mathcal{N} (\mathbf{v}; \mathbf{\mu}_{l (\mathbf{v})}; \mathbf{\Lambda}_{l (\mathbf{v})})" />
+</p>
+
+- to ensure probabilistic normalization, the partition function <img src="https://latex.codecogs.com/svg.latex?\inline&space;Z_t" title="Z_t" /> is defined as
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?Z_t&space;=&space;\int_\mathbf{v}&space;\pi_{l&space;(\mathbf{v})}&space;\mathcal{N}&space;(\mathbf{v};&space;\mathbf{\mu}_{l&space;(\mathbf{v})};&space;\mathbf{\Lambda}_{l&space;(\mathbf{v})})\,&space;d\mathbf{v}" title="Z_t = \int_\mathbf{v} \pi_{l (\mathbf{v})} \mathcal{N} (\mathbf{v}; \mathbf{\mu}_{l (\mathbf{v})}; \mathbf{\Lambda}_{l (\mathbf{v})})\, d\mathbf{v}" />
+</p>
+
+- forest density is average of all tree densities
+- while GMM parameters are learned via Expectation Maximization (EM), parameters of density forest learned via information gain maximization
 
 ### 5.3 - Effect of model parameters
 
+- deeper trees lead to further splits and smaller Gaussians
+  - tend to "fit to noise" of training data rather than captruing underlying nature of the data
+- even if individual trees over-fit, more trees lead to smoother densities
+- __since increasing <img src="https://latex.codecogs.com/svg.latex?\inline&space;T" title="T" /> always produces better results (with increased computational costs), we can just set <img src="https://latex.codecogs.com/svg.latex?\inline&space;T" title="T" /> to a "sufficiently large" value with optimizing the value
+
 ### 5.4 - Comparison with alternative algorithms
+
+- forests produce must smoother results for forest output
+- Parzen and nearest neighbor estimators produce artifacts due to hard choices of windows of number of neighbors
+- against GMM EM
+  - using more components does not make results any better
+  - use of randomness yields improved results
+  - EM getting stuck in local minima produce artifacts mitigated in the forest model
+  - under random restart GMM, the cost of the model is <img src="https://latex.codecogs.com/svg.latex?\inline&space;R&space;\times&space;T&space;\times&space;G" title="R \times T \times G" /> where <img src="https://latex.codecogs.com/svg.latex?\inline&space;R" title="R" /> is the number of random restarts, <img src="https://latex.codecogs.com/svg.latex?\inline&space;T" title="T" /> is the number of Gaussian components, and <img src="https://latex.codecogs.com/svg.latex?\inline&space;G" title="G" /> is the cost of evaluating the feature vector under each individual Guassian
+  - under the density forest with <img src="https://latex.codecogs.com/svg.latex?\inline&space;T" title="T" /> trees of maximum depth <img src="https://latex.codecogs.com/svg.latex?\inline&space;D" title="D" /> has cost <img src="https://latex.codecogs.com/svg.latex?\inline&space;T&space;\times&space;G&space;&plus;&space;T&space;\times&space;D&space;\times&space;B" title="T \times G + T \times D \times B" /> where <img src="https://latex.codecogs.com/svg.latex?\inline&space;B" title="B" /> is the cost of a binary test at the split node
+  - since <img src="https://latex.codecogs.com/svg.latex?\inline&space;B" title="B" /> is often really small, can disregard last term; this corresponds to cost of a single GMM
 
 ### 5.5 - Sampling from the generative model
 
+- describe algorithm for sampling random data under the learned model
+- the cost of sampling from density forests is equivalent to sampling from random-restart GMM
+
 ### 5.6 - Dealing with non-function relations
+
+- density forests are better equipped than regression forests for ambigious training data (not one-to-one between inputs)
+- before, regression forests were calculating posteriors around a central region, but now data points are treated as a pair with both dimensions treated as input features
+- the the joint generative density function is estimated <img src="https://latex.codecogs.com/svg.latex?\inline&space;p(x,&space;y)" title="p(x, y)" /> and calculated as
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?p(x,&space;y)&space;=&space;\frac{1}{T}&space;\sum_{t=1}^T&space;p_t&space;(x,&space;y)" title="p(x, y) = \frac{1}{T} \sum_{t=1}^T p_t (x, y)" />
+</p>
+
+- with the same individual tree density as before except with the joint density and with mean <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mathbf{\mu}_l&space;=&space;(\mu_x,&space;\mu_y)" title="\mathbf{\mu}_l = (\mu_x, \mu_y)" /> and covariance
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?\Lambda_l&space;=&space;\begin{pmatrix}&space;\sigma^2_{xx}&space;&&space;\sigma^2_{xy}&space;\\&space;\sigma^2_{yx}&space;&&space;\sigma^2_{yy}&space;\end{pmatrix}" title="\Lambda_l = \begin{pmatrix} \sigma^2_{xx} & \sigma^2_{xy} \\ \sigma^2_{yx} & \sigma^2_{yy} \end{pmatrix}" />
+</p>
+
+- given an axis-aligned weak learner for the density <img src="https://latex.codecogs.com/svg.latex?\inline&space;p(x,y)" title="p(x,y)" /> node inputs depend on the inputs and not on anything else, and leaf conditional mean and variance <img src="https://latex.codecogs.com/svg.latex?\inline&space;\mu_{y|x,l}&space;=&space;\mu_y&space;&plus;&space;\frac{\sigma^2_{xy}}{\sigma^2_{yy}}&space;(x^*&space;-&space;\mu_x)" title="\mu_{y|x,l} = \mu_y + \frac{\sigma^2_{xy}}{\sigma^2_{yy}} (x^* - \mu_x)" /> and <img src="https://latex.codecogs.com/svg.latex?\inline&space;\sigma^2_{y|x,l}&space;=&space;\sigma^2_{yy}&space;-&space;\frac{\sigma^4_{xy}}{\sigma^2_{xx}}" title="\sigma^2_{y|x,l} = \sigma^2_{yy} - \frac{\sigma^4_{xy}}{\sigma^2_{xx}}" />, the tree conditional density is
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?p(y&space;|&space;x=x^*)&space;=&space;\frac{1}{Z_{t,x^*}}&space;\sum_{l&space;\in&space;\mathcal{L}_{t,x^*}}&space;[y^B_l&space;\leq&space;y&space;<&space;y^T_l]\&space;\pi_l\&space;\mathcal{N}(y;&space;\mu_{y|x,l},&space;\sigma^2_{y|x,l})" title="p(y | x=x^*) = \frac{1}{Z_{t,x^*}} \sum_{l \in \mathcal{L}_{t,x^*}} [y^B_l \leq y < y^T_l]\ \pi_l\ \mathcal{N}(y; \mu_{y|x,l}, \sigma^2_{y|x,l})" />
+</p>
 
 ### 5.7 - Quantitative analysis
 
