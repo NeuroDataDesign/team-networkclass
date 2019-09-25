@@ -29,7 +29,7 @@ principled indefinite relaxation of the GMP constraints to the set of doubly sto
 * problem analyzed from viewpoint of ER moedl. The objective functions are based on topological considerations.
 * the marginal probabilities of edges varies; the presence of an edge in one graph increase its conditional probabality in the other
 
-## Padding Approaches
+## 3 Padding Approaches
 * Three main schems: naive, centered, and oracle padding.
 * naive will not be guaranteed, while centered and oracle are guaranteed to succeed (under mild model conditions).
 * 
