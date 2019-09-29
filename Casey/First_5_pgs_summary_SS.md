@@ -72,3 +72,6 @@ The elements of the matrix are the scores for each node at each critical value. 
 of the coherence of the SS. The likelihood parameter for an edge between nodes u and v is a Bernoulli parameter
 for each edge in the class. The maximum likelihood estimator (MLE) is the average value of each edge per class and is 
 used to estimate the parameter.
+
+##### Page 6:
+> In this section
