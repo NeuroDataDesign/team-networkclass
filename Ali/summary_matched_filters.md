@@ -32,4 +32,29 @@ principled indefinite relaxation of the GMP constraints to the set of doubly sto
 ## 3 Padding Approaches
 * Three main schems: naive, centered, and oracle padding.
 * naive will not be guaranteed, while centered and oracle are guaranteed to succeed (under mild model conditions).
+* approach to computing is similar to that of the FAQ algorithm
+* GMP consraints are relaxed and gradient descent is used
+* computational complexity of each iteration is that of rectangular linear assignment
+
+## 4 Experiments
+*  effectiveness of graph matching matched filter demonstrated in both synthetic and real data settings.
+* following scenarios used:
+  * pairs of homogeneous CorrER graphs with varied uniform correlation
+  * a planted partition model with goal to find dense partition 
+  * heterogeneous model with different subgraph sampling schemes
+  * Drosophila and Human connectomes
+* without seeds very few vertices are matched correctly. 
+* as number of seeds and correlations increase, the performance of the procedure becomes very good.
+* for higher correlations and for 15 seeds, there is a substantial gap in objective function and matched vertices
+* a gap in the objective function indicates the correct matching was likely found
+* consider graphs from the random dot product graph (RDPG) model to better evaluate the performance 
+* the max-angle subgraph is easier to discover than random subgraphs
+* rank-one approximation eliminates degree based differences in vertices
+* observe a gap in the objective function between solutions with less than 20
+and more than 35 correct matches.
+* used matched filter to locate  (K) cells in the fully reconstructed Drosophila mushroom body
+*  overall best performance is achieved by using the rank-1 scheme followed by the rank-3
+scheme
+*  failed to observe the substantial gap between accurate and inaccurate solutions.
+*  sorting according to the objective function value for the second match results in adverse behavior where lower objective functions result in poorer performance.
 * 
