@@ -47,11 +47,11 @@ https://www.microsoft.com/en-us/research/publication/decision-forests-for-classi
 ## Matched Filters for Noisy Induced Subgraph Detection
 https://arxiv.org/pdf/1803.02423.pdf D.Sussmah et al.
 
-### Introduction
+### 1: Introduction
 - The matched filter allows for comparisons between graph representations with sets of vertices of different cardinality.
 - Graph matching matched filter: Aligning smaller networks to the closest subgraph in the larger network.
 
-### Background for Graph Matching
+### 2: Background for Graph Matching
 **2.1**
 - Noisy matched filters: Search for the closest induced subgraph.
 - Try to determine when it's possible to narrow down to a specific vertex correspondence.
@@ -67,7 +67,31 @@ https://arxiv.org/pdf/1803.02423.pdf D.Sussmah et al.
 - http://jmlr.org/papers/volume15/lyzinski14a/lyzinski14a.pdf for more info on corrER
 - Should probably come back to this section for the algorithm
 
-### Padding Approaches
+### 3: Padding Approaches
 - Match two graphs with different vertex cardinality by padding the smaller graph with rows/cols.
 - **Naive Padding:** Add extra rows and columns to the bottom and right of the matrix.
-- **Centered Padding** and **Oracle Padding** - Come back later because I have no idea why this works 
+- **Centered Padding** and **Oracle Padding** - Come back later because I have no idea why this works
+
+## Seeded Graph Matching for Correlated Erdos-Renyi Graphs
+http://jmlr.org/papers/volume15/lyzinski14a/lyzinski14a.pdf V.Lyzinski et.al.
+
+### 1: Background
+- Correlated Erdos-Renyi graphs share a vertex set and a common Bernoulli-trial probability parameter.
+- For seeded graph matching, partial correlation is known.
+- Frank-Wolfe approach uses a relaxed IP solution.
+
+### 2: Graph Matching, Random Graph Setting, Main Results
+- Graphs in this paper are undirected, no self-loops, max one edge per vertex pair.
+
+**2.1**
+- A mismatch is defined when an existing edge is not present in the bijection, or when a nonexistent edge is present in the bijection.
+
+**2.2**
+- Theorem 1 almost guarantees the consistency of the graph matching estimate. (For all but a finite number of events)
+- Page 5 of link for equivalent formulation of corrER
+
+**2.3**
+- The restricted seed-matching problem reduces the problem to an efficiently solvable version, in which seed-nonseed disagreements are minimized. Instead of examining all edges in E(G), examine the edges that are connected to the seeds.
+
+**2.4**
+- Theorem 2 almost guarantees that the restricted problem can recover the latent bijection when a logarithmic number of seeds are presented. 
