@@ -1,4 +1,4 @@
-# *** Fast Approximate Quadratic Programming for Graph matching ***, Jovo, et al.    
+#  Fast Approximate Quadratic Programming for Graph matching , Jovo, et al.    
 <https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0121002>   
 ## Application Background: analyzing connectomes   
 * diagnose neurological diseases via comparing brain images     
