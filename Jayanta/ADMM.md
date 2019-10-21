@@ -9,3 +9,5 @@
 * Augmented Lagrangian and Method of Multiplier: Impose l-2 norm of the Lagrange function as constraint to facilitate better convergence
 
 * ADMM: Combine the advantage of both dual decomposition and method of multiplier so that it can be executed parallely with robust solution. Multiple vaiants of ADMM such as varying Lagrange multiplier with each iteration, relaxing the update of second variable by using a weighted average of first variable in the update, changing the order of update. 
+
+* chapter 4 describes about proximity operator, quadeatic objective terms, direct methods, exploiting sparsity,, caching factorizations, quadratic function restricted to an affine set, smooth objective terms, component separability
