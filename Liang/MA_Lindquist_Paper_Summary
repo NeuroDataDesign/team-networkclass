@@ -1,0 +1,21 @@
+Summary of Comparing test-retest reliability of dynamic functional connectivity methods
+
+Commonly used estimation methods for dynamic connectivity:
+	Sliding window(SW)
+	Tapered sliding window(TSW)
+	Dynamic conditional correlation(DCC): parametric model-based method that estimates conditional variances and correlations
+
+Two categories of dynamic FC summary measures:
+	Mean and variance of dynamic functional connectivity
+	Brain states(recurring whole-brain patterns of FC)
+	
+Datasets: Kirby Data, HCP Data
+Reliability evaluation: ICC, I2C2
+
+Conclusions:
+1. The reliability of dynamic correlation means was highly consistent across all estimation methods(for both datasets)
+2. Variances of dynamic correlations estimated using the DCC method displayed the highest reliability(for both datasets)
+3. Across all estimation methods, reliability of the brain state-derived measures was low
+
+Plans for the next step:
+Consider using DCC methods combined with the mean & variance of dynamic FC as estimates, evaluate discriminability
