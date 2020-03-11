@@ -2,8 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 import sys
+from joblib import Parallel, delayed
+
 sys.path
-sys.path.insert(0, '/Users/asaadeldin/Downloads/GitHub/graspy')
+sys.path.insert(0, "/Users/asaadeldin/Downloads/GitHub/graspy")
 
 from graspy.match import GraphMatch as GMP
 from graspy.simulations import sbm_corr
@@ -26,13 +28,15 @@ block_members = np.array(n_blocks * [n_per_block])
 block_probs = np.array([[0.7, 0.3, 0.4], [0.3, 0.7, 0.3], [0.4, 0.3, 0.7]])
 directed = False
 loops = False
-n_realizations = 2
+n_realizations = 100
 
+
+np.random.seed(8888)
 for k in range(11):
     rho = rhos[k]
     for i in m:
-        sums = 0
-        for j in range(n_realizations):
+
+        def run_sim(seed):
             A1, A2 = sbm_corr(
                 block_members, block_probs, rho, directed=directed, loops=loops
             )
@@ -47,9 +51,11 @@ for k in range(11):
 
             faq = GMP(gmp=True)
             faq = faq.fit(A1, A2_shuffle, W1, W2)
-            sums += match_ratio(faq.perm_inds_, node_unshuffle_input)
+            return match_ratio(faq.perm_inds_, node_unshuffle_input)
 
-        ratios[i, k] = sums / n_realizations
+        seeds = np.random.choice(int(1e8), size=n_realizations, replace=False)
+        outs = Parallel(n_jobs=-1, verbose=10)(delayed(run_sim)(seed) for seed in seeds)
+        ratios[i, k] = np.sum(outs) / n_realizations
 
 for i in range(11):
     plt.plot(m, ratios[:, i], "-o", label=str(rhos[i]))
@@ -58,10 +64,5 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc="upper left", borderaxespad=0.0)
 plt.xlabel("seeds (m)")
 plt.ylabel("match ratio")
 plt.savefig(
-    "./graspy/match/fig2.png",
-    fmt="png",
-    dpi=150,
-    facecolor="w",
-    bbox_inches="tight",
-    pad_inches=0.3,
+    "./fig2.png", fmt="png", dpi=150, facecolor="w", bbox_inches="tight", pad_inches=0.3
 )
